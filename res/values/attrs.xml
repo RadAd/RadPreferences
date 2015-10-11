@@ -4,4 +4,9 @@
         <attr name="minValue" format="integer"/>
         <attr name="maxValue" format="integer"/>
     </declare-styleable>
+    <declare-styleable name="EditUriPreference">
+        <attr name="buttonText" format="string"/>
+        <attr name="mimeType" format="string"/>
+        <attr name="prompt" format="string"/>
+    </declare-styleable>
 </resources>

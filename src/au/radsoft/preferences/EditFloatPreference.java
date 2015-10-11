@@ -2,20 +2,26 @@ package au.radsoft.preferences;
 
 import android.content.Context;
 import android.preference.EditTextPreference;
+import android.text.InputType;
 import android.util.AttributeSet;
 
 public class EditFloatPreference extends EditTextPreference
 {
 	public EditFloatPreference(Context context) {
-		super(context);	
+		this(context, null);
 	}	
 
 	public EditFloatPreference(Context context, AttributeSet attrs) {
-		super(context, attrs);
+		this(context, attrs, android.R.attr.editTextPreferenceStyle);
 	}
 
 	public EditFloatPreference(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
+        
+        // set android:inputType="numberDecimal" as default
+        int inputType = attrs.getAttributeIntValue(PreferenceActivity.SCHEMA_ANDROID, PreferenceActivity.ATTR_INPUT_TYPE, -1);
+        if (inputType == -1)
+            getEditText().setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
 	}
 
 	@Override

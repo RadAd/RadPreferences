@@ -4,9 +4,9 @@
     <au.radsoft.preferences.EditIntegerPreference
         android:key="pref_integer"
         android:defaultValue="10"
-        android:inputType="number"
         android:summary="@string/pref_integer_summary"
         android:dialogTitle="@string/pref_integer"
+        android:dialogMessage="@string/pref_integer_message"
         android:title="@string/pref_integer"
         app:minValue="1"
         app:maxValue="50" />
@@ -14,16 +14,16 @@
     <au.radsoft.preferences.EditFloatPreference
         android:key="pref_float"
         android:defaultValue="3.5"
-        android:inputType="numberDecimal"
         android:summary="@string/pref_float_summary"
+        android:dialogMessage="@string/pref_float_message"
         android:dialogTitle="@string/pref_float"
         android:title="@string/pref_float" />
     
-    <EditTextPreference
+    <au.radsoft.preferences.EditUriPreference
         android:key="pref_uri"
-        android:inputType="textUri"
         android:summary="@string/pref_uri_summary"
         android:dialogTitle="@string/pref_uri"
+        android:dialogMessage="@string/pref_uri_message"
         android:title="@string/pref_uri" />
         
 </PreferenceScreen>

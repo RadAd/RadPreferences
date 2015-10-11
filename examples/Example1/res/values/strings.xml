@@ -2,10 +2,14 @@
 <resources>
     <string name="app_name">Preferences Example1</string>
     <string name="app_desc">Examples for RadPreferences project.</string>
+    <string name="preferences">Preferences</string>
     <string name="pref_integer">Integer</string>
     <string name="pref_integer_summary">Example integer preference.</string>
+    <string name="pref_integer_message">Enter an integer:</string>
     <string name="pref_float">Float</string>
     <string name="pref_float_summary">Example float preference.</string>
+    <string name="pref_float_message">Enter a float:</string>
     <string name="pref_uri">Uri</string>
     <string name="pref_uri_summary">Example uri preference.</string>
+    <string name="pref_uri_message">Enter a uri:</string>
 </resources>
