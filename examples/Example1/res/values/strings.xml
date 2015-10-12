@@ -6,6 +6,9 @@
     <string name="pref_integer">Integer</string>
     <string name="pref_integer_summary">Example integer preference.</string>
     <string name="pref_integer_message">Enter an integer:</string>
+    <string name="pref_number_picker">Number Picker</string>
+    <string name="pref_number_picker_summary">Example number picker preference.</string>
+    <string name="pref_number_picker_message">Enter an integer:</string>
     <string name="pref_float">Float</string>
     <string name="pref_float_summary">Example float preference.</string>
     <string name="pref_float_message">Enter a float:</string>
