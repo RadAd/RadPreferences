@@ -37,13 +37,13 @@ import android.widget.NumberPicker;
  * It is a subclass of {@link DialogPreference} and shows the {@link NumberPicker}
  * in a dialog. This {@link NumberPicker} can be modified either programmatically
  * via {@link #getNumberPicker()}, or through XML by setting any NumberPicker
- * attributes on the EditIntegerPreference.
+ * attributes on the EditNumberPickerPreference.
  * <p>
  * This preference will store a integer into the SharedPreferences.
  * <p>
  * See {@link android.R.styleable#NumberPicker NumberPicker Attributes}.
  */
-public class EditIntegerPreference extends DialogPreference {
+public class EditNumberPickerPreference extends DialogPreference {
     /**
      * The edit value shown in the dialog.
      */
@@ -51,7 +51,7 @@ public class EditIntegerPreference extends DialogPreference {
     
     private int mValue;
 
-    public EditIntegerPreference(Context context, AttributeSet attrs, int defStyle) {
+    public EditNumberPickerPreference(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         
         mNumberPicker = new NumberPicker(context, attrs);
@@ -67,21 +67,21 @@ public class EditIntegerPreference extends DialogPreference {
          */
         mNumberPicker.setEnabled(true);
         
-        TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.EditIntegerPreference, defStyle, 0);
+        TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.EditNumberPickerPreference, defStyle, 0);
         
-        if (a.hasValue(R.styleable.EditIntegerPreference_minValue))
-            mNumberPicker.setMinValue(a.getInt(R.styleable.EditIntegerPreference_minValue, 0));
-        if (a.hasValue(R.styleable.EditIntegerPreference_maxValue))
-            mNumberPicker.setMaxValue(a.getInt(R.styleable.EditIntegerPreference_maxValue, Integer.MAX_VALUE));
+        if (a.hasValue(R.styleable.EditNumberPickerPreference_minValue))
+            mNumberPicker.setMinValue(a.getInt(R.styleable.EditNumberPickerPreference_minValue, 0));
+        if (a.hasValue(R.styleable.EditNumberPickerPreference_maxValue))
+            mNumberPicker.setMaxValue(a.getInt(R.styleable.EditNumberPickerPreference_maxValue, Integer.MAX_VALUE));
         
         a.recycle();
     }
 
-    public EditIntegerPreference(Context context, AttributeSet attrs) {
+    public EditNumberPickerPreference(Context context, AttributeSet attrs) {
         this(context, attrs, android.R.attr.editTextPreferenceStyle);
     }
 
-    public EditIntegerPreference(Context context) {
+    public EditNumberPickerPreference(Context context) {
         this(context, null);
     }
     
