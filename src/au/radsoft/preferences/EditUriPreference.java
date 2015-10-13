@@ -100,14 +100,21 @@ public class EditUriPreference extends EditTextPreference implements View.OnClic
 
     @Override // from View.OnClickListener
     public void onClick(View view) {
-        PreferenceActivity activity = (PreferenceActivity) getContext();
-        if (activity != null)
+        try
         {
-            Intent chooseFile = new Intent(Intent.ACTION_GET_CONTENT);
-            chooseFile.addCategory(Intent.CATEGORY_OPENABLE);
-            chooseFile.setType(mMimeType);
-            Intent intent = Intent.createChooser(chooseFile, mPrompt);
-            activity.startActivityForResult(intent, mRequestCode);
+            PreferenceActivity activity = (PreferenceActivity) getContext();
+            if (activity != null)
+            {
+                Intent chooseFile = new Intent(Intent.ACTION_GET_CONTENT);
+                chooseFile.addCategory(Intent.CATEGORY_OPENABLE);
+                chooseFile.setType(mMimeType);
+                Intent intent = Intent.createChooser(chooseFile, mPrompt);
+                activity.startActivityForResult(intent, mRequestCode);
+            }
+        }
+        catch (android.content.ActivityNotFoundException ex)
+        {
+            android.widget.Toast.makeText(getContext(), R.string.no_activity_found, android.widget.Toast.LENGTH_LONG).show();
         }
     }
     
