@@ -48,9 +48,12 @@ public class EditUriPreference extends EditTextPreference implements View.OnClic
         mButton.setOnClickListener(this);
         mButton.setPadding(0, 0, 5, 0);
         
-        PreferenceActivity activity = (PreferenceActivity) context;
-        if (activity != null)
-            mRequestCode = activity.setOnActivityResultCallback(this);
+        if (context instanceof PreferenceActivity)
+        {
+            PreferenceActivity activity = (PreferenceActivity) context;
+            if (activity != null)
+                mRequestCode = activity.setOnActivityResultCallback(this);
+        }
 	}
     
 	public EditUriPreference(Context context) {
@@ -102,14 +105,18 @@ public class EditUriPreference extends EditTextPreference implements View.OnClic
     public void onClick(View view) {
         try
         {
-            PreferenceActivity activity = (PreferenceActivity) getContext();
-            if (activity != null)
+            Context context = getContext();
+            if (context instanceof PreferenceActivity)
             {
-                Intent chooseFile = new Intent(Intent.ACTION_GET_CONTENT);
-                chooseFile.addCategory(Intent.CATEGORY_OPENABLE);
-                chooseFile.setType(mMimeType);
-                Intent intent = Intent.createChooser(chooseFile, mPrompt);
-                activity.startActivityForResult(intent, mRequestCode);
+                PreferenceActivity activity = (PreferenceActivity) context;
+                if (activity != null)
+                {
+                    Intent chooseFile = new Intent(Intent.ACTION_GET_CONTENT);
+                    chooseFile.addCategory(Intent.CATEGORY_OPENABLE);
+                    chooseFile.setType(mMimeType);
+                    Intent intent = Intent.createChooser(chooseFile, mPrompt);
+                    activity.startActivityForResult(intent, mRequestCode);
+                }
             }
         }
         catch (android.content.ActivityNotFoundException ex)
